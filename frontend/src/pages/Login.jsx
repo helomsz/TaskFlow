@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
+import { useNavigate, Link } from 'react-router-dom';
 import '../styles/login.css';
 
 export default function Login() {
@@ -10,6 +11,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  const navigate = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -17,6 +20,7 @@ export default function Login() {
 
     try {
       await login(email, password);
+      navigate('/');
     } catch (err) {
       setError('Email ou senha inválidos');
     } finally {
@@ -51,6 +55,13 @@ export default function Login() {
         <button type="submit" disabled={loading}>
           {loading ? 'Entrando...' : 'Entrar'}
         </button>
+        
+        <span className="registerText">
+          Não tem conta?{' '}
+          <Link to="/register" className="registerLink">
+            Criar conta
+          </Link>
+        </span>
       </form>
     </div>
   );
