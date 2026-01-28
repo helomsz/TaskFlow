@@ -8,6 +8,7 @@ Um **gerenciador de tarefas fullstack** no estilo **Kanban**, desenvolvido para 
 <p align="left">
   <img src="https://github.com/helomsz/TaskFlow/blob/main/assets/taskflow.png" width="900"/>
 </p>
+
 ---
 
 
